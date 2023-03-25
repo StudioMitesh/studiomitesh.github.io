@@ -1,0 +1,233 @@
+.topbar {
+  display:flex;
+  float:up;
+  width:100%;
+  height:5%;
+  background-color:#C8FAFA;
+}
+
+.topbar a {
+  color:black;
+  padding:1% 1.25%;
+  text-decoration:none;
+  text-align:center;
+}
+
+.topbar a:hover {
+  color:red;
+  background-color:#B4DBC0;
+}
+
+.container {
+  width:100%;
+  height:10000%;
+  background-color:#D5D5D5;
+}
+
+.leftbox {
+  float:left;
+  width:20%;
+  background-color:#B4DBC0;
+  border:solid black;
+}
+
+.middlebox {
+  float:left;
+  width:55%;
+  height:90%;
+  background-color:#2CD4E2;
+  border:double #F32754;
+  margin-left:1%;
+  text-align:center;
+}
+
+.rightbox {
+  float:right;
+  width:20%;
+  height:50%;
+  background-color:#0DDBAF;
+  border:solid black;
+  text-align:center;
+}
+
+.creativebox {
+  width:50%;
+  height:75%;
+  background-color:red;
+  position:relative;
+  animation:coolmove 5s infinite;
+  text-align:center;
+  margin:auto;
+  padding-top:25%;
+  padding-bottom:25%;
+  padding-left:10%;
+  padding-right:10%;
+}
+
+@keyframes coolmove {
+  0% {background-color:red; left:-10%;}
+  25% {background-color:yellow; left:10%;}
+  50% {background-color:green; left:10%;}
+  75% {background-color:blue; left:-10%;}
+  100% {background-color:red; left:-10%;}
+}
+
+.leftbox:active {
+  display:none;
+}
+
+body {
+  font-family:"Times New Roman",Times,serif;background-color:#D5D5D5;
+}
+
+h1 {
+  color:#A45BB3;
+  font-size:200%;
+}
+
+h2 {
+  color:#78D423;
+  font-size:150%;
+}
+
+h4 {
+  color:#04B7D6;
+  background-color:gold;
+  font-size:125%;
+  border-bottom:azure;
+}
+
+h3 {
+  color:#0571D6;
+  font-size:115%;
+  border-bottom:azure;
+  text-align:center;
+}
+
+p {
+  color:black;
+  font-size:100%;
+  text-align:left;
+  padding-left:2%
+}
+
+ol, ul {
+  text-align:left;
+}
+
+form {
+  text-align:center;
+}
+
+#p1 {
+  font-family:Arial,Helvetica,sans-serif;
+  background-color:#DADADA;
+}
+
+#p2 {
+  font-family:"Lucida Console","Courier New", monospace;
+  background-color:#E1E1FF;
+}
+
+#p3 {
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana, sans-serif;
+  background-color:#E9E9E9;
+}
+
+#p1:hover,#p2:hover,#p3:hover {
+  font-family:'Times New Roman',Times,serif;
+  background-color:#2CD4E2;
+}
+
+a:link {
+  text-decoration:underline;
+  color:blue;
+}
+
+a:visited {
+  text-decoration:underline;
+  color:purple;
+}
+
+a:hover {
+  font-style:italic;
+  color:pink;
+}
+
+a:active {
+  color:red;
+  background-color:yellow;
+}
+
+#picture1 {
+  float:left;
+  padding-left:2%;
+  padding-right:1%;
+  width:20%;
+}
+
+#picture2 {
+  float:left;
+  padding-left:2%;
+  padding-right:1%;
+  width:30%;
+}
+
+#picture3 {
+  float:right;
+  padding-left:1%;
+  padding-right:2%;
+  width:20%;
+}
+
+#sizechange {
+  width:50%;
+}
+
+@media screen and (max-width:1200px) {
+  background-color:#FFFFFF
+}
+
+@media screen and (max-width:992px) {
+  .topbar, .leftbox, .middlebox, .rightbox { 
+  flex-direction:column;
+  background-color:#CCCCCC;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .leftbox {
+    display:none;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .rightbox {
+    width:40%
+  }
+}
+
+@media screen and (max-width:768px) {
+  .topbar, .middlebox, .rightbox {
+  flex-direction:column;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .container {
+  background-color:#BBBBBB;
+  }
+}
+
+@media print {
+  p {
+    font-size:10px;
+  }
+}
+
+@media print {
+  .creativebox {
+    background-color:#CCCCCC;
+    animation:none;
+  }
+}
