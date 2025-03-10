@@ -13,17 +13,19 @@ import {
   ExternalLink, 
   Mail 
 } from "lucide-react";
+import nibble from "../assets/nibble.png";
+import swolemate from "../assets/swolemate.png";
+import nba from "../assets/nbashot.png";
+import breakthesilence from "../assets/breakthesilence.jpeg";
+import neuraqed from "../assets/neuraqed.png";
+import breast from "../assets/breastcancer.jpg";
+import energy from "../assets/energyefficiency.png";
+import march from "../assets/marchmadness.png";
+import mitesh from "../assets/mitesh.jpg";
 
 // This would ideally be populated from actual image files
 const projectImages = {
-  nibble: "https://placehold.co/800x450?text=Nibble",
-  swolemate: "https://placehold.co/800x450?text=SwoleMate",
-  nba: "https://placehold.co/800x450?text=NBA+Shot+Efficiency",
-  break: "https://placehold.co/800x450?text=Break+the+Silence",
-  neuraqed: "https://placehold.co/800x450?text=NeuraQED",
-  breast: "https://placehold.co/800x450?text=Breast+Cancer+Analysis",
-  energy: "https://placehold.co/800x450?text=Energy+Efficiency",
-  march: "https://placehold.co/800x450?text=March+Madness",
+  nibble, swolemate, nba, breakthesilence, neuraqed, breast, energy, march
 };
 
 const skillIcons = {
@@ -38,10 +40,13 @@ const skillIcons = {
   typescript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   r: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
   ruby: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg",
+  c: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  swift: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
   
   // Frameworks & Libraries
   pytorch: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
   tensorflow: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  keras: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg",
   pandas: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
   numpy: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
   flask: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
@@ -51,16 +56,27 @@ const skillIcons = {
   express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   opencv: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
   nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  tailwind: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+  tailwind: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  matplotlib: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
+  selenium: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg",
+  scikitlearn: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
   
   // Tools & Technologies
   git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   azure: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
-  aws: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+  aws: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  gcp: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
   mysql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   excel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
   mongodb: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  supabase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  postgres: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  sqlite: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+  fastapi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  mssql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
+  trello: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg",
+  jira: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
 };
 
 const projects = [
@@ -85,7 +101,7 @@ const projects = [
   {
     title: "Break the Silence",
     description: "A gesture-recognition app that helps facilitate nonverbal communication through computer vision and LLM-integrated conversations.",
-    image: projectImages.break,
+    image: projectImages.breakthesilence,
     link: "https://devpost.com/software/break-the-silence-76okpu",
   },
   {
@@ -224,10 +240,13 @@ const skills = [
   { name: "TypeScript", icon: skillIcons.typescript, category: "Programming Languages" },
   { name: "R", icon: skillIcons.r, category: "Programming Languages" },
   { name: "Ruby", icon: skillIcons.ruby, category: "Programming Languages" },
+  { name: "C", icon: skillIcons.c, category: "Programming Languages" },
+  { name: "Swift", icon: skillIcons.swift, category: "Programming Languages" },
   
   // Frameworks & Libraries
   { name: "PyTorch", icon: skillIcons.pytorch, category: "Frameworks & Libraries" },
   { name: "TensorFlow", icon: skillIcons.tensorflow, category: "Frameworks & Libraries" },
+  { name: "Keras", icon: skillIcons.keras, category: "Frameworks & Libraries" },
   { name: "Pandas", icon: skillIcons.pandas, category: "Frameworks & Libraries" },
   { name: "NumPy", icon: skillIcons.numpy, category: "Frameworks & Libraries" },
   { name: "Flask", icon: skillIcons.flask, category: "Frameworks & Libraries" },
@@ -238,15 +257,26 @@ const skills = [
   { name: "OpenCV", icon: skillIcons.opencv, category: "Frameworks & Libraries" },
   { name: "Node.js", icon: skillIcons.nodejs, category: "Frameworks & Libraries" },
   { name: "Tailwind", icon: skillIcons.tailwind, category: "Frameworks & Libraries" },
+  { name: "Matplotlib", icon: skillIcons.matplotlib, category: "Frameworks & Libraries" },
+  { name: "Selenium", icon: skillIcons.selenium, category: "Frameworks & Libraries" },
+  { name: "Scikit-learn", icon: skillIcons.scikitlearn, category: "Frameworks & Libraries" },
   
   // Tools & Technologies
   { name: "Git", icon: skillIcons.git, category: "Tools & Technologies" },
   { name: "Azure", icon: skillIcons.azure, category: "Tools & Technologies" },
   { name: "AWS", icon: skillIcons.aws, category: "Tools & Technologies" },
+  { name: "Google Cloud", icon: skillIcons.gcp, category: "Tools & Technologies" },
   { name: "MySQL", icon: skillIcons.mysql, category: "Tools & Technologies" },
   { name: "Firebase", icon: skillIcons.firebase, category: "Tools & Technologies" },
   { name: "Excel", icon: skillIcons.excel, category: "Tools & Technologies" },
+  { name: "Supabase", icon: skillIcons.supabase, category: "Tools & Technologies" },
+  { name: "PostgreSQL", icon: skillIcons.postgres, category: "Tools & Technologies" },
+  { name: "SQLite", icon: skillIcons.sqlite, category: "Tools & Technologies" },
+  { name: "FastAPI", icon: skillIcons.fastapi, category: "Tools & Technologies" },
+  { name: "Microsoft SQL Server", icon: skillIcons.mssql, category: "Tools & Technologies" },
   { name: "MongoDB", icon: skillIcons.mongodb, category: "Tools & Technologies" },
+  { name: "Trello", icon: skillIcons.trello, category: "Tools & Technologies" },
+  { name: "Jira", icon: skillIcons.jira, category: "Tools & Technologies" },
 ];
 
 const Index = () => {
@@ -266,6 +296,9 @@ const Index = () => {
       {/* Hero Section */}
       <section className="flex min-h-screen items-center justify-center bg-gradient-to-br from-white to-secondary/30 pt-16">
         <div className="section-container flex flex-col items-center justify-center text-center">
+          <div className="mb-8 flex h-72 w-72 items-center justify-center rounded-full bg-gradient-to-br">
+            <img src={mitesh} alt="StudioMitesh" className="h-68 w-68 rounded-full object-cover" />
+          </div>
           <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Mitesh Shah
           </h1>
@@ -374,13 +407,6 @@ const Index = () => {
               </div>
             </div>
           ))}
-          
-          <div className="mt-8 animate-on-scroll">
-            <p className="text-center text-sm font-medium text-muted-foreground">
-              Additional Skills: Seal of Biliteracy in Spanish, Agile (Jira/Trello), Project Management, 
-              Data Science, Databases, Scraping, Data Management, Quantum Computing
-            </p>
-          </div>
         </div>
       </section>
       

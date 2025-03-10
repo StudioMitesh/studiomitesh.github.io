@@ -33,7 +33,7 @@ const ProjectCard = ({
         <img
           src={image}
           alt={title}
-          className="project-image h-full w-full object-cover"
+          className="project-image h-full w-full object-contain bg-muted"
           loading="lazy"
         />
       </div>

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { Music, ExternalLink, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import studiomitesh from "../assets/studiomitesh.jpg";
 
 const MusicPage = () => {
   useEffect(() => {
@@ -38,13 +39,13 @@ const MusicPage = () => {
       name: "Apple Music",
       url: "https://music.apple.com/us/artist/studio-mitesh/1668500299",
       className: "bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600",
-      logo: "https://www.apple.com/v/apple-music/s/images/overview/apple_music_logo__co6igjq2cq2a_large.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Apple_Music_logo.svg",
     },
     {
       name: "YouTube",
       url: "https://www.youtube.com/@StudioMitesh",
       className: "bg-[#FF0000] hover:bg-[#FF0000]/90",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/1024px-YT_Music.svg.png",
     },
     {
       name: "SoundCloud",
@@ -54,27 +55,6 @@ const MusicPage = () => {
     },
   ];
 
-  const featuredTracks = [
-    {
-      title: "Track 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://placehold.co/800x800?text=Track+1",
-      embed: "https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT",
-    },
-    {
-      title: "Track 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://placehold.co/800x800?text=Track+2",
-      embed: "https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT",
-    },
-    {
-      title: "Track 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "https://placehold.co/800x800?text=Track+3",
-      embed: "https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT",
-    },
-  ];
-  
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -82,13 +62,8 @@ const MusicPage = () => {
       {/* Hero Section */}
       <section className="flex min-h-[70vh] items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d] pt-16">
         <div className="section-container flex flex-col items-center justify-center text-center text-white">
-          <Link to="/" className="mb-8 flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white">
-            <ArrowLeft className="h-4 w-4" />
-            <span>Back to Portfolio</span>
-          </Link>
-          
-          <div className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500 animate-pulse">
-            <Music className="h-12 w-12" />
+          <div className="mb-8 flex h-72 w-72 items-center justify-center rounded-full bg-gradient-to-br">
+            <img src={studiomitesh} alt="StudioMitesh" className="h-68 w-68 rounded-full object-cover" />
           </div>
           
           <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
@@ -96,7 +71,7 @@ const MusicPage = () => {
           </h1>
           
           <p className="animate-fade-in mt-6 max-w-2xl text-lg text-white/70">
-            Music Production • Composition • Sound Design
+            Rapper | Songwriter | Music Producer
           </p>
           
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -118,49 +93,32 @@ const MusicPage = () => {
         </div>
       </section>
       
-      {/* Featured Music Section */}
-      <section className="bg-[#f5f5f7] py-16 md:py-24">
+
+      {/* Latest Release on YouTube */}
+      <section className="bg-white py-16 md:py-24">
         <div className="section-container">
-          <h2 className="section-title animate-on-scroll">Featured Tracks</h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {featuredTracks.map((track, index) => (
-              <div
-                key={track.title}
-                className="animate-on-scroll overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-lg"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={track.image}
-                    alt={track.title}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{track.title}</h3>
-                  <p className="mb-4 text-sm text-muted-foreground">{track.description}</p>
-                  <div className="relative h-0 overflow-hidden pb-[60%] rounded-lg">
-                    <iframe
-                      src={track.embed}
-                      width="100%"
-                      height="152"
-                      frameBorder="0"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                      className="absolute top-0 left-0 h-full w-full rounded-lg"
-                      title={track.title}
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="section-title animate-on-scroll">Latest Videos</h2>
+          <div className="mx-auto max-w-3xl">
+            <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg animate-on-scroll">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/O-k8OYd7yiU"
+                title="YouTube playlist"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
       
+
       {/* Spotify Playlist Section */}
       <section className="bg-white py-16 md:py-24">
         <div className="section-container">
-          <h2 className="section-title animate-on-scroll">Latest Releases</h2>
+          <h2 className="section-title animate-on-scroll">Top Tracks</h2>
           <div className="mx-auto max-w-3xl">
             <div className="aspect-[3/2] w-full overflow-hidden rounded-2xl shadow-lg animate-on-scroll">
               <iframe
@@ -195,26 +153,6 @@ const MusicPage = () => {
         </div>
       </section>
       
-      {/* YouTube Embed Section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="section-container">
-          <h2 className="section-title animate-on-scroll">Latest Videos</h2>
-          <div className="mx-auto max-w-3xl">
-            <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg animate-on-scroll">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/videoseries?list=UU1uvj6MGuYwR4dZj0CXpkp2"
-                title="YouTube playlist"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Contact Section */}
       <section className="bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d] py-16 md:py-24 text-white">
         <div className="section-container">
@@ -224,7 +162,7 @@ const MusicPage = () => {
               Interested in collaborating or have questions about my music? I'd love to hear from you!
             </p>
             <a
-              href="mailto:studiomitesh@example.com"
+              href="mailto:studiomitesh47@gmail.com"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 text-lg font-medium text-white shadow-lg transition-all hover:from-purple-600 hover:to-pink-600"
             >
               <span>Contact for Music Inquiries</span>
