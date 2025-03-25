@@ -91,6 +91,7 @@ const projects = [
     description: "A fitness tracking and coaching app that tracks workouts and provides form feedback based on live camera inputs. Version 2 is currently in development.",
     image: projectImages.swolemate,
     link: "https://devpost.com/software/swolemate-r2lug9",
+    github: "https://github.com/rudrasingh500/swolemate2",
   },
   {
     title: "NBA Shot Efficiency Classifier",
@@ -126,7 +127,7 @@ const projects = [
     title: "March Madness Tournament Simulator",
     description: "A prediction app that simulates the tournament using game-by-game simulations based on historical trends, team performance, and conference-wide stats.",
     image: projectImages.march,
-    github: "#",
+    github: "https://github.com/StudioMitesh/march-madness-25",
   },
 ];
 
@@ -457,7 +458,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col items-center justify-center space-y-6 animate-on-scroll">
               <a
-                href="mailto:hello@example.com"
+                href="mailto:mshah402@gatech.edu"
                 className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-lg font-medium text-primary-foreground transition-all hover:opacity-90"
               >
                 <Mail className="h-5 w-5" />

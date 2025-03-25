@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -13,13 +12,22 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Experience", href: "/#experience" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Skills", href: "/#skills" },
-    { name: "Organizations", href: "/#organizations" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Organizations", href: "#organizations" },
+    { name: "Contact", href: "#contact" },
     { name: "StudioMitesh", href: "/music" },
   ];
+
+  const scrollToSection = (href: string) => {
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +45,18 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  const handleNavigation = (href: string) => {
+    if (href === "/") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        window.location.href = `/${href}`;
+      } else {
+        scrollToSection(href);
+      }
+    }
+  };
 
   return (
     <header
@@ -60,18 +80,21 @@ const Header = () => {
           <ul className="flex items-center space-x-8">
             {navigation.map((item) => (
               <li key={item.name}>
-                <Link
-                  to={item.href}
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigation(item.href);
+                  }}
                   className={cn(
                     "text-sm font-medium transition-all hover-underline",
-                    (location.pathname === item.href || 
-                     (location.pathname === "/" && item.href.startsWith("/#")))
+                    location.pathname === '/' && item.href.startsWith('#')
                       ? "text-primary"
                       : "text-muted-foreground hover:text-primary"
                   )}
                 >
                   {item.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -108,18 +131,21 @@ const Header = () => {
             <ul className="flex flex-col space-y-6">
               {navigation.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.href}
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(item.href);
+                    }}
                     className={cn(
                       "block text-lg font-medium transition-all",
-                      (location.pathname === item.href || 
-                       (location.pathname === "/" && item.href.startsWith("/#")))
+                      location.pathname === '/' && item.href.startsWith('#')
                         ? "text-primary"
                         : "text-muted-foreground hover:text-primary"
                     )}
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
