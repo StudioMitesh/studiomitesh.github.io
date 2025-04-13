@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -9,6 +9,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -46,17 +47,29 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const handleNavigation = (href: string) => {
-    if (href === "/") {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (href.startsWith('#')) {
-      if (location.pathname !== '/') {
-        window.location.href = `/${href}`;
-      } else {
-        scrollToSection(href);
-      }
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (!href.startsWith('#')) {
+      navigate(href);
+      return;
+    }
+    
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: href } });
+    } else {
+      scrollToSection(href);
     }
   };
+
+  useEffect(() => {
+    if (location.pathname === '/' && location.state && (location.state as any).scrollTo) {
+      const target = (location.state as any).scrollTo;
+      setTimeout(() => {
+        scrollToSection(target);
+      }, 100);
+    }
+  }, [location]);
 
   return (
     <header
@@ -82,13 +95,11 @@ const Header = () => {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavigation(item.href);
-                  }}
+                  onClick={(e) => handleNavigation(e, item.href)}
                   className={cn(
                     "text-sm font-medium transition-all hover-underline",
-                    location.pathname === '/' && item.href.startsWith('#')
+                    (location.pathname === item.href || 
+                     (location.pathname === "/" && item.href.startsWith("#")))
                       ? "text-primary"
                       : "text-muted-foreground hover:text-primary"
                   )}
@@ -133,13 +144,11 @@ const Header = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavigation(item.href);
-                    }}
+                    onClick={(e) => handleNavigation(e, item.href)}
                     className={cn(
                       "block text-lg font-medium transition-all",
-                      location.pathname === '/' && item.href.startsWith('#')
+                      (location.pathname === item.href || 
+                       (location.pathname === "/" && item.href.startsWith("#")))
                         ? "text-primary"
                         : "text-muted-foreground hover:text-primary"
                     )}
