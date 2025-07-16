@@ -6,6 +6,12 @@
 @tailwind utilities;
 
 @layer base {
+  .dark {
+    @apply bg-gray-900 text-white; /* Add dark mode background and text color */
+  }
+}
+
+@layer base {
   :root {
     --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
@@ -32,15 +38,9 @@
     --destructive-foreground: 210 40% 98%;
     
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 199 89% 48%; /* Changed to aqua blue */
-    
-    --radius: 0.75rem;
-  }
-
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222.2 84% 4.9%; /* Dark background */
+    --foreground: 210 40% 98%; /* Light text */
     
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -61,6 +61,12 @@
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%; /* Aqua blue */
+  } --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     
     --border: 217.2 32.6% 17.5%;

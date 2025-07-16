@@ -33,6 +33,7 @@ const skillIcons = {
   python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   sql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  go: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
   cpp: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
   html: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   css: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
@@ -77,6 +78,12 @@ const skillIcons = {
   mssql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
   trello: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg",
   jira: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
+  docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  kubernetes: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+  redis: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  kafka: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+  postman: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+  grafana: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
 };
 
 const projects = [
@@ -132,6 +139,17 @@ const projects = [
 ];
 
 const experiences = [
+  {
+    company: "United Parcel Service (Roadie Inc.)",
+    title: "Software Engineering Intern",
+    location: "Atlanta, GA",
+    date: "May 2025 - August 2025",
+    description: [
+      "Roadie is a crowdsourced delivery platform and UPS subsidiary handling 200k+ daily shipments across the U.S.",
+      "Developed a Golang-based backend service to optimize blackout day handling by reallocating and deferring delivery dates based on warehouse/driver availability, enabling software to scale from 100K to 200K gigs/day",
+      "Improved internal API endpoint workflow efficiency across logistics microservices, reducing latency by 500ms per API endpoint call through streamlining calls from 3 layers to 1 call and increasing operational throughput for delivery planning pipelines"
+    ]
+  },
   {
     company: "TechBridge Inc.",
     title: "Software Project Management Process Intern",
@@ -195,6 +213,14 @@ const organizations = [
     ]
   },
   {
+    title: "Data Science @ Georgia Tech",
+    role: "Sports Analytics Team Project Lead, Outreach Team Member",
+    description: [
+      "Lead creation of app to model NBA shot selection efficiency based on advanced metrics/shot chart data to provide a player's efficiency value per dollar for NBA fantasy decision-making using frameworks like Pandas, Seaborn, Scikit-Learn, & Plotly",
+      "Gained expertise in web scraping, ML, & full-stack development through stakeholder research and collaboration on outreach"
+    ]
+  },
+  {
     title: "Georgia Tech VIP - Interactive Music Group Team",
     role: "Team Member",
     description: [
@@ -234,15 +260,16 @@ const skills = [
   { name: "Python", icon: skillIcons.python, category: "Programming Languages" },
   { name: "Java", icon: skillIcons.java, category: "Programming Languages" },
   { name: "SQL", icon: skillIcons.sql, category: "Programming Languages" },
-  { name: "C++", icon: skillIcons.cpp, category: "Programming Languages" },
+  { name: "Go", icon: skillIcons.go, category: "Programming Languages" },
   { name: "HTML", icon: skillIcons.html, category: "Programming Languages" },
   { name: "CSS", icon: skillIcons.css, category: "Programming Languages" },
   { name: "JavaScript", icon: skillIcons.javascript, category: "Programming Languages" },
   { name: "TypeScript", icon: skillIcons.typescript, category: "Programming Languages" },
+  { name: "C", icon: skillIcons.c, category: "Programming Languages" },
+  { name: "C++", icon: skillIcons.cpp, category: "Programming Languages" },
+  { name: "Swift", icon: skillIcons.swift, category: "Programming Languages" },
   { name: "R", icon: skillIcons.r, category: "Programming Languages" },
   { name: "Ruby", icon: skillIcons.ruby, category: "Programming Languages" },
-  { name: "C", icon: skillIcons.c, category: "Programming Languages" },
-  { name: "Swift", icon: skillIcons.swift, category: "Programming Languages" },
   
   // Frameworks & Libraries
   { name: "PyTorch", icon: skillIcons.pytorch, category: "Frameworks & Libraries" },
@@ -278,6 +305,12 @@ const skills = [
   { name: "MongoDB", icon: skillIcons.mongodb, category: "Tools & Technologies" },
   { name: "Trello", icon: skillIcons.trello, category: "Tools & Technologies" },
   { name: "Jira", icon: skillIcons.jira, category: "Tools & Technologies" },
+  { name: "Docker", icon: skillIcons.docker, category: "Tools & Technologies" },
+  { name: "Kubernetes", icon: skillIcons.kubernetes, category: "Tools & Technologies" },
+  { name: "Redis", icon: skillIcons.redis, category: "Tools & Technologies" },
+  { name: "Apache Kafka", icon: skillIcons.kafka, category: "Tools & Technologies" },
+  { name: "Postman", icon: skillIcons.postman, category: "Tools & Technologies" },
+  { name: "Grafana", icon: skillIcons.grafana, category: "Tools & Technologies" }
 ];
 
 const Index = () => {
@@ -307,7 +340,7 @@ const Index = () => {
             Computer Science Student at Georgia Tech
           </p>
           <p className="animate-fade-in mt-4 max-w-2xl text-base text-muted-foreground">
-            Projected to graduate in May 2026
+            Projected to graduate in May 2027
           </p>
           <div className="animate-fade-in mt-8 flex items-center space-x-4">
             <a
@@ -432,7 +465,7 @@ const Index = () => {
             <h3 className="mb-4 text-xl font-semibold">Academic Coursework</h3>
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
               <p className="mb-4 text-sm">
-                I'm pursuing a Bachelor of Science in Computer Science with a specialization in Modeling, Simulation, and Intelligence at Georgia Tech.
+                I'm pursuing a Bachelor of Science in Computer Science with a specialization in Modeling, Simulation, and Intelligence at Georgia Tech, maintaining a <b>4.0</b> GPA.
               </p>
               <a
                 href="https://catalog.gatech.edu/programs/modeling-simulation-intelligence-computer-science-bs/"
@@ -452,7 +485,7 @@ const Index = () => {
       <section id="contact" className="bg-white py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Contact</h2>
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-3xl text-center">
             <p className="mb-8 text-lg text-muted-foreground animate-on-scroll">
               I'm always open to new opportunities and collaborations. Feel free to reach out!
             </p>

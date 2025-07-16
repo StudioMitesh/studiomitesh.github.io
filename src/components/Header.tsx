@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -111,16 +112,15 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Search and Theme Toggle */}
-        <div className="hidden md:flex items-center space-x-2">
+        {/* <div className="hidden md:flex items-center space-x-2">
           <SearchButton />
           <ThemeToggle />
-        </div>
+        </div> */}
 
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <SearchButton />
-          <ThemeToggle />
+          {/* <SearchButton />
+          <ThemeToggle /> */}
           <button
             className="ml-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
