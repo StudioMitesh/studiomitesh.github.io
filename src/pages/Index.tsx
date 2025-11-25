@@ -543,7 +543,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col items-center justify-center space-y-6 animate-on-scroll">
               <a
-                href="mailto:mshah402@gatech.edu"
+                href="mailto:miteshshah@gatech.edu"
                 className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-lg font-medium text-primary-foreground transition-all hover:opacity-90"
               >
                 <Mail className="h-5 w-5" />
