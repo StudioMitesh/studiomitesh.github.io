@@ -22,10 +22,13 @@ import breast from "../assets/breastcancer.jpg";
 import energy from "../assets/energyefficiency.png";
 import march from "../assets/marchmadness.png";
 import mitesh from "../assets/mitesh.jpg";
+import lore from "../assets/lore.png";
+import foodie from "../assets/foodie.png";
+import accidentpred from "../assets/accidentpred.png";
 
 // This would ideally be populated from actual image files
 const projectImages = {
-  nibble, swolemate, nba, breakthesilence, neuraqed, breast, energy, march
+  nibble, swolemate, nba, breakthesilence, neuraqed, breast, energy, march, lore, foodie, accidentpred
 };
 
 const skillIcons = {
@@ -86,13 +89,8 @@ const skillIcons = {
   grafana: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
 };
 
-const projects = [
-  {
-    title: "Nibble",
-    description: "A web and mobile app connecting street vendors to customers, helping them build their brands. Currently being further developed and expanded.",
-    image: projectImages.nibble,
-    link: "https://nibble-a1.netlify.app/",
-  },
+// Featured projects (top 3 highlighted)
+const featuredProjects = [
   {
     title: "SwoleMate: Your AI Fitness Companion",
     description: "A fitness tracking and coaching app that tracks workouts and provides form feedback based on live camera inputs. Version 2 is currently in development.",
@@ -101,10 +99,35 @@ const projects = [
     github: "https://github.com/rudrasingh500/swolemate2",
   },
   {
-    title: "NBA Shot Efficiency Classifier",
-    description: "A data science project that classifies shot selection efficiency of NBA players based on their stats and shot chart data, helping evaluate effectiveness for fantasy basketball and sports betting.",
-    image: projectImages.nba,
-    github: "https://github.com/leozheng829/NBA_-ShotEfficiency",
+    title: "Lore: Interactive Travel Mapping App",
+    description: "A travel app to help users track their travel history and explore new places through a map-based interface. AI features in development.",
+    image: projectImages.lore,
+    link: "https://loremaps.netlify.app/",
+    github: "https://github.com/StudioMitesh/lore",
+  },
+  {
+    title: "NeuraQED: Quantum Error Correction",
+    description: "A neural network based approach to correcting errors in low-level, low-depth quantum computers using sequence matching and novel quantum-based activation function.",
+    image: projectImages.neuraqed,
+    link: "https://docs.google.com/presentation/d/e/2PACX-1vTcCRLY4frV-h2hEd2er7iCXF3XIB6K5sq1rDhEMfaEDaatCjkmc14PsbFGa1AlRMT878_1OPG7wqcY/pub?start=false&loop=false&delayms=15000",
+  },
+];
+
+// Additional projects (displayed below featured)
+const additionalProjects = [
+  {
+    title: "BiggieBack Foodie: AI Recipe Maker and Search Engine",
+    description: "A web app that uses AI to generate recipes and search for existing recipes given a picture of ingredients, built with AI in a 4-hour hackathon.",
+    image: projectImages.foodie,
+    link: "https://hackday-foodie.vercel.app/",
+    github: "https://github.com/StudioMitesh/hackday-foodie",
+  },
+  {
+    title: "CS 4641 ML Project: Traffic Accident Injury Prediction",
+    description: "A machine learning class (Georgia Tech CS 4641) project that predicts the likelihood/severity of injury in traffic accidents based on various features like weather, time of day, and road conditions.",
+    image: projectImages.accidentpred,
+    link: "https://github.gatech.edu/pages/mshah402/ml-group-50/",
+    github: "https://github.gatech.edu/mshah402/ml-group-50",
   },
   {
     title: "Break the Silence",
@@ -113,16 +136,22 @@ const projects = [
     link: "https://devpost.com/software/break-the-silence-76okpu",
   },
   {
-    title: "NeuraQED: Quantum Error Correction",
-    description: "A neural network based approach to correcting errors in low-level, low-depth quantum computers using sequence matching and novel quantum-based activation function.",
-    image: projectImages.neuraqed,
-    link: "https://docs.google.com/presentation/d/e/2PACX-1vTcCRLY4frV-h2hEd2er7iCXF3XIB6K5sq1rDhEMfaEDaatCjkmc14PsbFGa1AlRMT878_1OPG7wqcY/pub?start=false&loop=false&delayms=15000",
-  },
-  {
     title: "Predictive Vision Analysis of Breast Cancer Cells",
     description: "A data science and computer vision project that explored aggregating data from breast cancer cells to expedite diagnoses and improve quick treatment.",
     image: projectImages.breast,
     github: "https://github.com/StudioMitesh/GSMSTTSADataScience24",
+  },
+  {
+    title: "NBA Shot Efficiency Classifier",
+    description: "A data science project that classifies shot selection efficiency of NBA players based on their stats and shot chart data, helping evaluate effectiveness for fantasy basketball and sports betting.",
+    image: projectImages.nba,
+    github: "https://github.com/leozheng829/NBA_-ShotEfficiency",
+  },
+  {
+    title: "Nibble",
+    description: "A web and mobile app connecting street vendors to customers, helping them build their brands. Currently being further developed and expanded.",
+    image: projectImages.nibble,
+    link: "https://nibble-a1.netlify.app/",
   },
   {
     title: "Energy Efficiency Scorer Tool",
@@ -189,7 +218,7 @@ const experiences = [
 const organizations = [
   {
     title: "HexLabs Inc.",
-    role: "Operations Team Member",
+    role: "Co-director of Operations",
     date: "November 2024 - Present",
     description: [
       "Help organize logistics and operations for smooth flow of hackathon events with 1500+ participants",
@@ -404,18 +433,41 @@ const Index = () => {
       <section id="projects" className="bg-secondary/30 py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Projects</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                image={project.image}
-                link={project.link}
-                github={project.github}
-                index={index}
-              />
-            ))}
+          
+          {/* Featured Projects (Top 3) */}
+          <div className="mb-12">
+            <h3 className="mb-6 text-xl font-semibold animate-on-scroll">Featured Projects</h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  link={project.link}
+                  github={project.github}
+                  index={index}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Projects */}
+          <div>
+            <h3 className="mb-6 text-xl font-semibold animate-on-scroll">Other Projects</h3>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {additionalProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  link={project.link}
+                  github={project.github}
+                  index={index + featuredProjects.length}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
