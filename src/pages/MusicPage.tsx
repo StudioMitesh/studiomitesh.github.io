@@ -2,8 +2,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
-import { Music, ExternalLink, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
+import { latestVideoId, musicPlatforms } from "@/data/music";
 import studiomitesh from "../assets/studiomitesh.jpg";
 
 const MusicPage = () => {
@@ -27,33 +27,6 @@ const MusicPage = () => {
     return () => observer.disconnect();
   }, []);
   
-  const musicPlatforms = [
-    {
-      name: "Spotify",
-      url: "https://open.spotify.com/artist/1uvj6MGuYwR4dZj0CXpkp2",
-      className: "bg-[#1DB954] hover:bg-[#1DB954]/90",
-      logo: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png",
-    },
-    {
-      name: "Apple Music",
-      url: "https://music.apple.com/us/artist/studio-mitesh/1668500299",
-      className: "bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Apple_Music_logo.svg",
-    },
-    {
-      name: "YouTube",
-      url: "https://www.youtube.com/@StudioMitesh",
-      className: "bg-[#FF0000] hover:bg-[#FF0000]/90",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/1024px-YT_Music.svg.png",
-    },
-    {
-      name: "SoundCloud",
-      url: "https://soundcloud.com/studio-mitesh",
-      className: "bg-[#FF7700] hover:bg-[#FF7700]/90",
-      logo: "https://developers.soundcloud.com/assets/logo_white-af5006050dd9cba09b0c48be04feac57.png",
-    },
-  ];
-
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -62,7 +35,7 @@ const MusicPage = () => {
       <section className="flex min-h-[70vh] items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d] pt-16">
         <div className="section-container flex flex-col items-center justify-center text-center text-white">
           <div className="mb-8 flex h-72 w-72 items-center justify-center rounded-full bg-gradient-to-br">
-            <img src={studiomitesh} alt="StudioMitesh" className="h-68 w-68 rounded-full object-cover" />
+            <img src={studiomitesh} alt="StudioMitesh" className="h-full w-full rounded-full object-cover" />
           </div>
           
           <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
@@ -73,16 +46,16 @@ const MusicPage = () => {
             Rapper | Songwriter | Music Producer
           </p>
           
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-5">
             {musicPlatforms.map((platform) => (
               <a
                 key={platform.name}
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex flex-col items-center justify-center gap-3 rounded-xl p-4 text-white transition-all hover:scale-105 ${platform.className}`}
+                className={`flex flex-col items-center justify-center gap-3 rounded-xl p-4 text-white transition-all hover:scale-105 first:col-span-2 md:first:col-span-1 ${platform.className}`}
               >
-                <div className="h-8 w-full overflow-hidden">
+                <div className="flex h-8 w-full items-center justify-center overflow-hidden">
                   <img src={platform.logo} alt={platform.name} className="h-full w-auto object-contain" />
                 </div>
                 <span className="text-sm font-medium">{platform.name}</span>
@@ -96,14 +69,15 @@ const MusicPage = () => {
       {/* Latest Release on YouTube */}
       <section className="bg-card py-16 md:py-24">
         <div className="section-container">
-          <h2 className="section-title animate-on-scroll">Latest Videos</h2>
+          <h2 className="section-title animate-on-scroll">Latest Upload</h2>
           <div className="mx-auto max-w-3xl">
             <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg animate-on-scroll">
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/O-k8OYd7yiU"
-                title="YouTube playlist"
+                src={`https://www.youtube.com/embed/${latestVideoId}`}
+                title="Latest YouTube upload"
+                loading="lazy"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
