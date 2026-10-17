@@ -66,10 +66,12 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname === '/' && location.state && (location.state as any).scrollTo) {
       const target = (location.state as any).scrollTo;
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         scrollToSection(target);
       }, 100);
+      return () => clearTimeout(timer);
     }
+    window.scrollTo(0, 0);
   }, [location]);
 
   return (

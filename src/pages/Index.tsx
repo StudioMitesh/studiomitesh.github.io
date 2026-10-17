@@ -1,5 +1,6 @@
 
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
@@ -343,6 +344,20 @@ const skills = [
 ];
 
 const Index = () => {
+  // Observe on every mount so cards still fade in after navigating back from /music
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   // Group skills by category
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
@@ -390,12 +405,12 @@ const Index = () => {
               <Linkedin className="h-5 w-5" />
               <span>LinkedIn</span>
             </a>
-            <a
-              href="/music"
+            <Link
+              to="/music"
               className="flex items-center gap-2 rounded-full bg-white px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
             >
               <span>StudioMitesh</span>
-            </a>
+            </Link>
           </div>
           <div className="animate-fade-in mt-20">
             <a
