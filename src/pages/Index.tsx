@@ -65,6 +65,7 @@ const skillIcons = {
   matplotlib: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
   selenium: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg",
   scikitlearn: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+  springboot: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
   
   // Tools & Technologies
   git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
@@ -88,20 +89,23 @@ const skillIcons = {
   kafka: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
   postman: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
   grafana: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
+  duckdb: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/duckdb/duckdb-original.svg",
+  bigquery: "https://cdn.simpleicons.org/googlebigquery/669DF6",
+  snowflake: "https://cdn.simpleicons.org/snowflake/29B5E8",
 };
 
 // Featured projects (top 3 highlighted)
 const featuredProjects = [
   {
     title: "SwoleMate: Your AI Fitness Companion",
-    description: "A fitness tracking and coaching app that tracks workouts and provides form feedback based on live camera inputs. Version 2 is currently in development.",
+    description: "A fitness tracking and coaching app that tracks workouts and provides form feedback based on live camera inputs. Won the UGAHacks X Award. Version 2 is currently in development.",
     image: projectImages.swolemate,
     link: "https://devpost.com/software/swolemate-r2lug9",
     github: "https://github.com/rudrasingh500/swolemate2",
   },
   {
     title: "Lore: Interactive Travel Mapping App",
-    description: "A travel app to help users track their travel history and explore new places through a map-based interface. AI features in development.",
+    description: "A travel app to help users track their travel history and explore new places through a map-based interface. Launched with 200+ early users. AI features in development.",
     image: projectImages.lore,
     link: "https://loremaps.netlify.app/",
     github: "https://github.com/StudioMitesh/lore",
@@ -170,25 +174,36 @@ const additionalProjects = [
 
 const experiences = [
   {
-    company: "United Parcel Service (Roadie Inc.)",
-    title: "Software Engineering Intern",
-    location: "Atlanta, GA",
-    date: "May 2025 - August 2025",
+    company: "PayPal",
+    title: "Software Engineer Intern (Payment Compliance Platform)",
+    location: "San Jose, CA",
+    date: "May 2026 - August 2026",
     description: [
-      "Roadie is a crowdsourced delivery platform and UPS subsidiary handling 200k+ daily shipments across the U.S.",
-      "Developed a Golang-based backend service to optimize blackout day handling by reallocating and deferring delivery dates based on warehouse/driver availability, enabling software to scale from 100K to 200K gigs/day",
-      "Improved internal API endpoint workflow efficiency across logistics microservices, reducing latency by 500ms per API endpoint call through streamlining calls from 3 layers to 1 call and increasing operational throughput for delivery planning pipelines"
+      "Built a Python pipeline ingesting 40M+ daily compliance events from BigQuery into DuckDB, mapping transaction variants to compliance decisions at zero added infra cost, fully automated via scheduled notebook",
+      "Developed a Java Spring Boot Daemon listener consuming real-time compliance logs off a Kafka topic in the QA environment, replicating extraction logic to catalog Functional Test (FT) structure and surface coverage analytics",
+      "Designed a skills-guided AI agent managing 5,000+ FTs, auto-generating new tests and answering natural-language queries on variant flows to close compliance test coverage gaps"
     ]
   },
   {
-    company: "TechBridge Inc.",
-    title: "Software Project Management Process Intern",
-    location: "Atlanta, GA",
-    date: "July 2024 - October 2024",
+    company: "Snowflake",
+    title: "Software Engineer Intern (AI/ML)",
+    location: "Menlo Park, CA",
+    date: "January 2026 - April 2026",
     description: [
-      "Nonprofit technical consulting group serving 50+ ATL nonprofits & 70,000+ affected individuals through technology solutions",
-      "Developed a comprehensive process flow model for tech implementation projects using BPMN flowchart to unify teams towards 30% increase in \"Salesforce services\" & Azure-cloud solutions project approval ratings from nonprofit clients in Metro-Atlanta",
-      "Integrated parametric & bottom-up cost estimation in Agile methodology for better workflow of software development lifecycle"
+      "Architected an end-to-end agentic AI workflow for creation, evaluation, and optimization of custom Snowflake Cortex AI Functions, enabling conversational function generation for 80% of new production-scale use cases",
+      "Drove average 10%+ accuracy improvements over Snowflake built-in and SOTA benchmarks via synthetic data generation, QA testing pipelines, prompt optimization using GEPA, and Python/SQL code generation",
+      "Built async/parallelized UDF and stored procedure workflows with AI function versioning and Python-based custom metric definitions, cutting pipeline latency by ~50% on large-scale Snowflake datasets"
+    ]
+  },
+  {
+    company: "United Parcel Service (Roadie Inc.)",
+    title: "Software Engineering Intern",
+    location: "Atlanta, GA",
+    date: "May 2025 - December 2025",
+    description: [
+      "Roadie is a crowdsourced delivery platform and UPS subsidiary handling 200k+ daily shipments across the U.S.",
+      "Engineered a Golang backend service for the fastest-growing UPS branch, RoadieXD/MI, to optimize temporal and capacity-based delivery allocation, scaling throughput from 100K to 400K+ daily shipments for 30+ clients",
+      "Refactored logistics microservices' REST API calls to a PostgreSQL backend using Kafka messaging and Redis caching, reducing latency by 500ms/request and tripling delivery planning efficiency"
     ]
   },
   {
@@ -201,18 +216,6 @@ const experiences = [
       "Developed new superposed activation function (NeurA) for adaptability to noisy codes by 40% decrease in physical error rate",
       "Received alternate bid to present at National Junior Science & Humanities Symposium (6/60 in GA) for presentation + paper"
     ]
-  },
-  {
-    company: "FoodFinder",
-    title: "Summer Operations Intern",
-    location: "Duluth, GA",
-    date: "June 2022 - July 2022",
-    description: [
-      "Nonprofit that maintains online database/map of 60,000+ food pantries/assistance programs across America",
-      "Completed a data validation and updation project for over 1000 food pantries in Georgia to clean/update Excel spreadsheets behind website, created Google AppsScript program to write optimized search queries for efficient data collection",
-      "Built a Selenium/BeautifulSoup web scraping tool to compile accurate information to fill data gaps for verified food pantries",
-      "Designed marketing strategies and analytics presentations to present on Google-based sponsorship services"
-    ]
   }
 ];
 
@@ -222,8 +225,8 @@ const organizations = [
     role: "Co-director of Operations",
     date: "November 2024 - Present",
     description: [
-      "Help organize logistics and operations for smooth flow of hackathon events with 1500+ participants",
-      "Organize swag like shirts and stickers, food orders, bookings for rooms and event spaces for all attendees"
+      "Directed end-to-end operations at HackGT13, the Southeast's largest collegiate hackathon, for 1,400+ attendees",
+      "Led a 20-person operations team managing a $100K budget, coordinating logistics with 25+ sponsors/vendors"
     ]
   },
   {
@@ -318,6 +321,7 @@ const skills = [
   { name: "Matplotlib", icon: skillIcons.matplotlib, category: "Frameworks & Libraries" },
   { name: "Selenium", icon: skillIcons.selenium, category: "Frameworks & Libraries" },
   { name: "Scikit-learn", icon: skillIcons.scikitlearn, category: "Frameworks & Libraries" },
+  { name: "Spring Boot", icon: skillIcons.springboot, category: "Frameworks & Libraries" },
   
   // Tools & Technologies
   { name: "Git", icon: skillIcons.git, category: "Tools & Technologies" },
@@ -340,7 +344,10 @@ const skills = [
   { name: "Redis", icon: skillIcons.redis, category: "Tools & Technologies" },
   { name: "Apache Kafka", icon: skillIcons.kafka, category: "Tools & Technologies" },
   { name: "Postman", icon: skillIcons.postman, category: "Tools & Technologies" },
-  { name: "Grafana", icon: skillIcons.grafana, category: "Tools & Technologies" }
+  { name: "Grafana", icon: skillIcons.grafana, category: "Tools & Technologies" },
+  { name: "BigQuery", icon: skillIcons.bigquery, category: "Tools & Technologies" },
+  { name: "DuckDB", icon: skillIcons.duckdb, category: "Tools & Technologies" },
+  { name: "Snowflake", icon: skillIcons.snowflake, category: "Tools & Technologies" }
 ];
 
 const Index = () => {
@@ -388,7 +395,7 @@ const Index = () => {
             Computer Science Student at Georgia Tech
           </p>
           <p className="animate-fade-in mt-4 max-w-2xl text-base text-muted-foreground">
-            Projected to graduate in May 2027
+            BS in May 2027 | MS in May 2028 (BS/MS in Computer Science, Machine Learning)
           </p>
           <div className="animate-fade-in mt-8 flex items-center space-x-4">
             <a
@@ -536,7 +543,7 @@ const Index = () => {
             <h3 className="mb-4 text-xl font-semibold">Academic Coursework</h3>
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
               <p className="mb-4 text-sm">
-                I'm pursuing a Bachelor of Science in Computer Science with a specialization in Modeling, Simulation, and Intelligence at Georgia Tech, maintaining a <b>4.0</b> GPA.
+                I'm pursuing a BS/MS in Computer Science with a Machine Learning focus at Georgia Tech (BS May 2027, MS May 2028), maintaining a <b>4.0</b> GPA. Coursework includes Graduate Computer Vision, Machine Learning, Artificial Intelligence, Algorithmic Design, and Simulation.
               </p>
               <a
                 href="https://catalog.gatech.edu/programs/modeling-simulation-intelligence-computer-science-bs/"
