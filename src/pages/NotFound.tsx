@@ -7,6 +7,7 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "Page not found - Mitesh Shah";
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
@@ -14,7 +15,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-white to-secondary/30 p-6 text-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-background to-secondary/30 p-6 text-center">
       <div className="max-w-md animate-fade-in">
         <h1 className="mb-6 text-6xl font-bold tracking-tight">404</h1>
         <p className="mb-8 text-xl text-muted-foreground">

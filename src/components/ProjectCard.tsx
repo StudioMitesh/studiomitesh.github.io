@@ -1,4 +1,5 @@
 
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,14 @@ const ProjectCard = ({
   className,
   index,
 }: ProjectCardProps) => {
+  const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // cached images can finish before React attaches onLoad
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
+
   return (
     <div 
       className={cn(
@@ -29,11 +38,19 @@ const ProjectCard = ({
         className
       )}
     >
-      <div className="project-image-container mb-4 aspect-video w-full overflow-hidden rounded-lg bg-muted">
+      <div className={cn("project-image-container mb-4 aspect-video w-full overflow-hidden rounded-lg bg-muted",
+          !loaded && "animate-pulse"
+        )}>
         <img
           src={image}
           alt={title}
-          className="project-image h-full w-full object-contain bg-muted"
+          ref={imgRef}
+          onLoad={() => setLoaded(true)}
+          onError={() => setLoaded(true)}
+          className={cn(
+            "project-image h-full w-full object-contain bg-muted transition-all duration-700",
+            loaded ? "blur-0 scale-100 opacity-100" : "scale-105 opacity-0 blur-lg"
+          )}
           loading="lazy"
         />
       </div>

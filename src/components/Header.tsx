@@ -1,44 +1,51 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { cn, scrollBehavior } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { SearchButton } from "./SearchButton";
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
+  { name: "Organizations", href: "#organizations" },
+  { name: "Contact", href: "#contact" },
+  { name: "StudioMitesh", href: "/music" },
+];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Organizations", href: "#organizations" },
-    { name: "Contact", href: "#contact" },
-    { name: "StudioMitesh", href: "/music" },
-  ];
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: scrollBehavior() });
       }
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      setIsScrolled(window.scrollY > 10);
+
+      // scroll-spy: last section whose top has passed the header
+      let current = "";
+      for (const item of navigation) {
+        if (!item.href.startsWith("#")) continue;
+        const el = document.querySelector(item.href);
+        if (el && el.getBoundingClientRect().top <= 120) current = item.href;
       }
+      setActiveSection(current);
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -48,8 +55,19 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  const isActive = (href: string) =>
+    location.pathname === "/"
+      ? href === "/" ? activeSection === "" : href === activeSection
+      : location.pathname === href;
+
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (href === "/" && location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: scrollBehavior() });
+      return;
+    }
     
     if (!href.startsWith('#')) {
       navigate(href);
@@ -101,8 +119,7 @@ const Header = () => {
                   onClick={(e) => handleNavigation(e, item.href)}
                   className={cn(
                     "text-sm font-medium transition-all hover-underline",
-                    (location.pathname === item.href || 
-                     (location.pathname === "/" && item.href.startsWith("#")))
+                    isActive(item.href)
                       ? "text-primary"
                       : "text-muted-foreground hover:text-primary"
                   )}
@@ -114,15 +131,13 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* <div className="hidden md:flex items-center space-x-2">
-          <SearchButton />
+        <div className="hidden md:flex items-center space-x-2">
           <ThemeToggle />
-        </div> */}
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          {/* <SearchButton />
-          <ThemeToggle /> */}
+          <ThemeToggle />
           <button
             className="ml-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -149,8 +164,7 @@ const Header = () => {
                     onClick={(e) => handleNavigation(e, item.href)}
                     className={cn(
                       "block text-lg font-medium transition-all",
-                      (location.pathname === item.href || 
-                       (location.pathname === "/" && item.href.startsWith("#")))
+                      isActive(item.href)
                         ? "text-primary"
                         : "text-muted-foreground hover:text-primary"
                     )}

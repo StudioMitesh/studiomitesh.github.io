@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import MusicPage from "./pages/MusicPage";
 import NotFound from "./pages/NotFound";
+import BackToTop from "@/components/BackToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => {
               <Route path="/music" element={<MusicPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <BackToTop />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

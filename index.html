@@ -4,8 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mitesh Shah - Portfolio</title>
-    <meta name="description" content="Mitesh Shah's Technical Portfolio" />
+    <meta name="description" content="Mitesh Shah's Technical Portfolio. CS student at Georgia Tech: projects, experience, and music." />
     <meta name="author" content="Mitesh Shah" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="canonical" href="https://studiomitesh.github.io/" />
+
+    <!-- Link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mitesh Shah" />
+    <meta property="og:title" content="Mitesh Shah - Portfolio" />
+    <meta property="og:description" content="CS student at Georgia Tech. Projects, experience, and music." />
+    <meta property="og:url" content="https://studiomitesh.github.io/" />
+    <meta property="og:image" content="https://studiomitesh.github.io/og-image.jpg" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mitesh Shah - Portfolio" />
+    <meta name="twitter:description" content="CS student at Georgia Tech. Projects, experience, and music." />
+    <meta name="twitter:image" content="https://studiomitesh.github.io/og-image.jpg" />
+
+    <!-- Apply saved theme before first paint to avoid a light flash -->
+    <script>
+      try {
+        var t = localStorage.getItem('mitesh-ui-theme') || 'light';
+        if (t === 'system') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.classList.add(t);
+      } catch (e) {}
+    </script>
     <!-- GitHub Pages SPA redirect: restores the path 404.html encoded into the query string -->
     <script>
       (function (l) {

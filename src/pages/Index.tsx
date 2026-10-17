@@ -344,6 +344,10 @@ const skills = [
 ];
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "Mitesh Shah - Portfolio";
+  }, []);
+
   // Observe on every mount so cards still fade in after navigating back from /music
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -372,7 +376,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="flex min-h-screen items-center justify-center bg-gradient-to-br from-white to-secondary/30 pt-16">
+      <section className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background to-secondary/30 pt-16">
         <div className="section-container flex flex-col items-center justify-center text-center">
           <div className="mb-8 flex h-72 w-72 items-center justify-center rounded-full bg-gradient-to-br">
             <img src={mitesh} alt="StudioMitesh" className="h-68 w-68 rounded-full object-cover" />
@@ -391,7 +395,7 @@ const Index = () => {
               href="https://github.com/StudioMitesh"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
+              className="flex items-center gap-2 rounded-full bg-card px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
             >
               <Github className="h-5 w-5" />
               <span>GitHub</span>
@@ -400,14 +404,14 @@ const Index = () => {
               href="https://www.linkedin.com/in/miteshmshah/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
+              className="flex items-center gap-2 rounded-full bg-card px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
             >
               <Linkedin className="h-5 w-5" />
               <span>LinkedIn</span>
             </a>
             <Link
               to="/music"
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
+              className="flex items-center gap-2 rounded-full bg-card px-4 py-2 font-medium shadow-sm transition-all hover:bg-card hover:shadow-md"
             >
               <span>StudioMitesh</span>
             </Link>
@@ -425,7 +429,7 @@ const Index = () => {
       </section>
       
       {/* Experience Section */}
-      <section id="experience" className="bg-white py-16 md:py-24">
+      <section id="experience" className="bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Professional Experience</h2>
           <div className="space-y-8">
@@ -488,7 +492,7 @@ const Index = () => {
       </section>
       
       {/* Skills Section */}
-      <section id="skills" className="bg-white py-16 md:py-24">
+      <section id="skills" className="bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Skills</h2>
           
@@ -549,7 +553,7 @@ const Index = () => {
       </section>
       
       {/* Contact Section */}
-      <section id="contact" className="bg-white py-16 md:py-24">
+      <section id="contact" className="bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Contact</h2>
           <div className="mx-auto max-w-3xl text-center">
@@ -569,7 +573,7 @@ const Index = () => {
                   href="https://github.com/StudioMitesh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-white p-2 text-foreground shadow-sm transition-all hover:bg-primary hover:text-primary-foreground"
+                  className="rounded-full bg-card p-2 text-foreground shadow-sm transition-all hover:bg-primary hover:text-primary-foreground"
                   aria-label="GitHub"
                 >
                   <Github className="h-6 w-6" />
@@ -578,7 +582,7 @@ const Index = () => {
                   href="https://www.linkedin.com/in/miteshmshah/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-white p-2 text-foreground shadow-sm transition-all hover:bg-primary hover:text-primary-foreground"
+                  className="rounded-full bg-card p-2 text-foreground shadow-sm transition-all hover:bg-primary hover:text-primary-foreground"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />

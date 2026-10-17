@@ -10,6 +10,7 @@ const MusicPage = () => {
   useEffect(() => {
     // Ensure scroll to top when page loads
     window.scrollTo(0, 0);
+    document.title = "StudioMitesh - Music";
     
     // Apply animation class to elements when they enter viewport
     const observer = new IntersectionObserver((entries) => {
@@ -93,7 +94,7 @@ const MusicPage = () => {
       
 
       {/* Latest Release on YouTube */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Latest Videos</h2>
           <div className="mx-auto max-w-3xl">
@@ -114,7 +115,7 @@ const MusicPage = () => {
       
 
       {/* Spotify Playlist Section */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Top Tracks</h2>
           <div className="mx-auto max-w-3xl">
@@ -134,10 +135,10 @@ const MusicPage = () => {
       </section>
       
       {/* About Music Section */}
-      <section className="bg-[#f5f5f7] py-16 md:py-24">
+      <section className="bg-secondary py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">About My Music</h2>
-          <div className="mx-auto max-w-3xl rounded-2xl bg-white p-8 shadow-md animate-on-scroll">
+          <div className="mx-auto max-w-3xl rounded-2xl bg-card p-8 shadow-md animate-on-scroll">
             <p className="mb-4 text-lg">
               Music has always been a passion of mine. As StudioMitesh, I create original compositions across various genres, experimenting with sound design and production techniques.
             </p>
