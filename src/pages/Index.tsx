@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceCard from "@/components/ExperienceCard";
 import OrganizationCard from "@/components/OrganizationCard";
 import SkillIcon from "@/components/SkillIcon";
@@ -14,23 +14,7 @@ import {
   ExternalLink, 
   Mail 
 } from "lucide-react";
-import nibble from "../assets/nibble.png";
-import swolemate from "../assets/swolemate.png";
-import nba from "../assets/nbashot.png";
-import breakthesilence from "../assets/breakthesilence.jpeg";
-import neuraqed from "../assets/neuraqed.png";
-import breast from "../assets/breastcancer.jpg";
-import energy from "../assets/energyefficiency.png";
-import march from "../assets/marchmadness.png";
 import mitesh from "../assets/mitesh.jpg";
-import lore from "../assets/lore.png";
-import foodie from "../assets/foodie.png";
-import accidentpred from "../assets/accidentpred.png";
-
-// This would ideally be populated from actual image files
-const projectImages = {
-  nibble, swolemate, nba, breakthesilence, neuraqed, breast, energy, march, lore, foodie, accidentpred
-};
 
 const skillIcons = {
   // Programming Languages
@@ -94,84 +78,6 @@ const skillIcons = {
   snowflake: "https://cdn.simpleicons.org/snowflake/29B5E8",
 };
 
-// Featured projects (top 3 highlighted)
-const featuredProjects = [
-  {
-    title: "SwoleMate: Your AI Fitness Companion",
-    description: "A fitness tracking and coaching app that tracks workouts and provides form feedback based on live camera inputs. Won the UGAHacks X Award. Version 2 is currently in development.",
-    image: projectImages.swolemate,
-    link: "https://devpost.com/software/swolemate-r2lug9",
-    github: "https://github.com/rudrasingh500/swolemate2",
-  },
-  {
-    title: "Lore: Interactive Travel Mapping App",
-    description: "A travel app to help users track their travel history and explore new places through a map-based interface. Launched with 200+ early users. AI features in development.",
-    image: projectImages.lore,
-    link: "https://loremaps.netlify.app/",
-    github: "https://github.com/StudioMitesh/lore",
-  },
-  {
-    title: "NeuraQED: Quantum Error Correction",
-    description: "A neural network based approach to correcting errors in low-level, low-depth quantum computers using sequence matching and novel quantum-based activation function.",
-    image: projectImages.neuraqed,
-    link: "https://docs.google.com/presentation/d/e/2PACX-1vTcCRLY4frV-h2hEd2er7iCXF3XIB6K5sq1rDhEMfaEDaatCjkmc14PsbFGa1AlRMT878_1OPG7wqcY/pub?start=false&loop=false&delayms=15000",
-  },
-];
-
-// Additional projects (displayed below featured)
-const additionalProjects = [
-  {
-    title: "BiggieBack Foodie: AI Recipe Maker and Search Engine",
-    description: "A web app that uses AI to generate recipes and search for existing recipes given a picture of ingredients, built with AI in a 4-hour hackathon.",
-    image: projectImages.foodie,
-    link: "https://hackday-foodie.vercel.app/",
-    github: "https://github.com/StudioMitesh/hackday-foodie",
-  },
-  {
-    title: "CS 4641 ML Project: Traffic Accident Injury Prediction",
-    description: "A machine learning class (Georgia Tech CS 4641) project that predicts the likelihood/severity of injury in traffic accidents based on various features like weather, time of day, and road conditions.",
-    image: projectImages.accidentpred,
-    link: "https://github.gatech.edu/pages/mshah402/ml-group-50/",
-    github: "https://github.gatech.edu/mshah402/ml-group-50",
-  },
-  {
-    title: "Break the Silence",
-    description: "A gesture-recognition app that helps facilitate nonverbal communication through computer vision and LLM-integrated conversations.",
-    image: projectImages.breakthesilence,
-    link: "https://devpost.com/software/break-the-silence-76okpu",
-  },
-  {
-    title: "Predictive Vision Analysis of Breast Cancer Cells",
-    description: "A data science and computer vision project that explored aggregating data from breast cancer cells to expedite diagnoses and improve quick treatment.",
-    image: projectImages.breast,
-    github: "https://github.com/StudioMitesh/GSMSTTSADataScience24",
-  },
-  {
-    title: "NBA Shot Efficiency Classifier",
-    description: "A data science project that classifies shot selection efficiency of NBA players based on their stats and shot chart data, helping evaluate effectiveness for fantasy basketball and sports betting.",
-    image: projectImages.nba,
-    github: "https://github.com/leozheng829/NBA_-ShotEfficiency",
-  },
-  {
-    title: "Nibble",
-    description: "A web and mobile app connecting street vendors to customers, helping them build their brands. Currently being further developed and expanded.",
-    image: projectImages.nibble,
-    link: "https://nibble-a1.netlify.app/",
-  },
-  {
-    title: "Energy Efficiency Scorer Tool",
-    description: "A data science and machine learning app that helps buildings improve energy efficiency through decision tree classifiers of building energy data.",
-    image: projectImages.energy,
-    github: "https://github.com/StudioMitesh/LA-Energy-Efficiency-py",
-  },
-  {
-    title: "March Madness Tournament Simulator",
-    description: "A prediction app that simulates the tournament using game-by-game simulations based on historical trends, team performance, and conference-wide stats.",
-    image: projectImages.march,
-    github: "https://github.com/StudioMitesh/march-madness-25",
-  },
-];
-
 const experiences = [
   {
     company: "PayPal",
@@ -222,7 +128,7 @@ const experiences = [
 const organizations = [
   {
     title: "HexLabs Inc.",
-    role: "Co-director of Operations",
+    role: "Co-Director of Operations",
     date: "November 2024 - Present",
     description: [
       "Directed end-to-end operations at HackGT13, the Southeast's largest collegiate hackathon, for 1,400+ attendees",
@@ -232,6 +138,7 @@ const organizations = [
   {
     title: "Grand Challenges Living Learning Community at Georgia Tech",
     role: "Community Member",
+    date: "August 2024 - May 2025",
     description: [
       "Selected as one of 240 students to build and learn through the design process",
       "Building a better, cheaper alternative to white and smart canes for improved navigational independence and mobility for blind people"
@@ -240,6 +147,7 @@ const organizations = [
   {
     title: "Georgia Tech Office of Competitive Sports",
     role: "Intramural Official",
+    date: "August 2024 - August 2025",
     description: [
       "Officiate for sports like soccer, volleyball, flag football, basketball",
       "Help facilitate smooth communication across the sports and within the organization"
@@ -248,6 +156,7 @@ const organizations = [
   {
     title: "Data Science @ Georgia Tech",
     role: "Sports Analytics Team Project Lead, Outreach Team Member",
+    date: "August 2024 - May 2025",
     description: [
       "Lead creation of app to model NBA shot selection efficiency based on advanced metrics/shot chart data to provide a player's efficiency value per dollar for NBA fantasy decision-making using frameworks like Pandas, Seaborn, Scikit-Learn, & Plotly",
       "Gained expertise in web scraping, ML, & full-stack development through stakeholder research and collaboration on outreach"
@@ -256,6 +165,7 @@ const organizations = [
   {
     title: "Georgia Tech VIP - Interactive Music Group Team",
     role: "Team Member",
+    date: "January 2025 - May 2025",
     description: [
       "Building a virtual reality experience called Wings of Change for a zoo exhibit",
       "Leverages climate data and sonification techniques to create an interactive game-based experience",
@@ -275,6 +185,7 @@ const organizations = [
   {
     title: "SHAD Calgary 2023 Network",
     role: "Fellow",
+    date: "Summer 2023",
     description: [
       "Selected as one of 64 students to attend a 4-week summer research and entrepreneurial design development program at the University of Calgary"
     ]
@@ -282,6 +193,7 @@ const organizations = [
   {
     title: "Boy Scouts Troop 846",
     role: "Eagle Scout of America",
+    date: "2017 - 2024",
     description: [
       "Achieved highest rank in Boy Scouts of America"
     ]
@@ -436,7 +348,7 @@ const Index = () => {
       </section>
       
       {/* Experience Section */}
-      <section id="experience" className="bg-card py-16 md:py-24">
+      <section id="experience" className="scroll-mt-16 bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Professional Experience</h2>
           <div className="space-y-8">
@@ -455,51 +367,10 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Projects Section */}
-      <section id="projects" className="bg-secondary/30 py-16 md:py-24">
-        <div className="section-container">
-          <h2 className="section-title animate-on-scroll">Projects</h2>
-          
-          {/* Featured Projects (Top 3) */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-xl font-semibold animate-on-scroll">Featured Projects</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {featuredProjects.map((project, index) => (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  link={project.link}
-                  github={project.github}
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
+      <ProjectsSection />
 
-          {/* Additional Projects */}
-          <div>
-            <h3 className="mb-6 text-xl font-semibold animate-on-scroll">Other Projects</h3>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {additionalProjects.map((project, index) => (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  link={project.link}
-                  github={project.github}
-                  index={index + featuredProjects.length}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Skills Section */}
-      <section id="skills" className="bg-card py-16 md:py-24">
+      <section id="skills" className="scroll-mt-16 bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Skills</h2>
           
@@ -523,7 +394,7 @@ const Index = () => {
       </section>
       
       {/* Organizations Section */}
-      <section id="organizations" className="bg-secondary/30 py-16 md:py-24">
+      <section id="organizations" className="scroll-mt-16 bg-secondary/30 py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Organizations & Activities</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -560,7 +431,7 @@ const Index = () => {
       </section>
       
       {/* Contact Section */}
-      <section id="contact" className="bg-card py-16 md:py-24">
+      <section id="contact" className="scroll-mt-16 bg-card py-16 md:py-24">
         <div className="section-container">
           <h2 className="section-title animate-on-scroll">Contact</h2>
           <div className="mx-auto max-w-3xl text-center">

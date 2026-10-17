@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cn, scrollBehavior } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -21,6 +20,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const mounted = useRef(false);
 
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
@@ -64,33 +64,30 @@ const Header = () => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
 
-    if (href === "/" && location.pathname === "/") {
-      window.scrollTo({ top: 0, behavior: scrollBehavior() });
-      return;
-    }
-    
     if (!href.startsWith('#')) {
-      navigate(href);
+      if (href === location.pathname) window.scrollTo({ top: 0, behavior: scrollBehavior() });
+      else navigate(href);
       return;
     }
-    
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: href } });
-    } else {
-      scrollToSection(href);
+
+    if (location.pathname === '/' && location.hash === href) {
+      scrollToSection(href); // same hash: no navigation, so no effect to scroll for us
+      return;
     }
+    navigate({ pathname: '/', search: location.pathname === '/' ? location.search : '', hash: href });
   };
 
+  // Mount: start at the top unless the URL has a #section. Later hash changes scroll to it.
+  // A dropped hash (e.g. filter click) deliberately does nothing.
   useEffect(() => {
-    if (location.pathname === '/' && location.state && (location.state as any).scrollTo) {
-      const target = (location.state as any).scrollTo;
-      const timer = setTimeout(() => {
-        scrollToSection(target);
-      }, 100);
+    const first = !mounted.current;
+    mounted.current = true;
+    if (location.hash) {
+      const timer = setTimeout(() => scrollToSection(location.hash), 100);
       return () => clearTimeout(timer);
     }
-    window.scrollTo(0, 0);
-  }, [location]);
+    if (first) window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
 
   return (
     <header
@@ -104,6 +101,7 @@ const Header = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
         <Link 
           to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
           className="text-xl font-bold tracking-tight transition-all hover:opacity-80"
         >
           Mitesh Shah
